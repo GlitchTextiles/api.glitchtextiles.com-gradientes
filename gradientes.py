@@ -20,7 +20,7 @@ import time
 
 from decouple import config
 
-debug = False
+debug = True
 
 abs_path = os.path.dirname(os.path.abspath(__file__))
 rel_path = "templates/custom_product_template.json"
@@ -237,11 +237,10 @@ class GradientesHandler(BaseHandler):
 
 def make_app():
 	settings = dict(
-		template_path = os.path.join(path, 'templates'),
-		static_path = os.path.join(path, 'static'),
-		default_handler_class = DefaultHandler,
-		cookie_secret = conf['cookie_secret'],
-		debug = True
+		template_path = os.path.join(abs_path, 'templates'),
+		static_path = os.path.join(abs_path, 'static'),
+		cookie_secret = config('COOKIE_SECRET'),
+		debug = debug
 	)
 	urls = [
 		(r'/', GradientesHandler)
