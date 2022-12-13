@@ -1,0 +1,39 @@
+{
+	"type": "PHYSICAL",
+	"storePageId": null,
+	"name": null,
+	"description": "<p>54\" x 72\"</p><p>95% Cotton (75% recycled) + 5% Polyester</p><p>Made in the USA.</p><p>Machine washable on cold, tumble dry on low, line dry, or dry flat.</p><p>Design preview colors are a simulated representation. Woven colors will naturally vary from what you see on the screen, but not by too much.</p><p>We try our best to deliver 1 week from time of purchase, however, please allow up to 2 weeks for domestic delivery and 3 weeks for international.</p><p>Sales on custom orders are final. No refunds or exchanges, except in the event that the item is defective or arrives damaged.</p>",
+	"urlSlug": null,
+	"tags": ["throw", "custom"],
+	"isVisible": true,
+	"variants": [{
+		"sku": null,
+		"pricing": {
+			"basePrice": {
+				"currency": "USD",
+				"value": "125.00"
+			},
+			"onSale": true,
+			"salePrice": {
+				"currency": "USD",
+				"value": "100.00"
+			}
+		},
+		"stock": {
+			"quantity": 0,
+			"unlimited": true
+		},
+		"shippingMeasurements": {
+			"weight": {
+				"unit": "POUND",
+				"value": 3.0
+			},
+			"dimensions": {
+				"unit": "INCH",
+				"length": 18.0,
+				"width": 12.0,
+				"height": 3.0
+			}
+		}
+	}]
+}

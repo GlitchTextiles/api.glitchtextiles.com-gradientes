@@ -1,0 +1,231 @@
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+} 
+
+html, body {
+  font-family: sans-serif;
+  font-weight: normal;
+  height: 100vh;
+  overflow: scroll;
+  min-width: 320px;
+  padding:  0px 0px 0px 0px;
+}
+
+/* Default styling for buttons */
+
+button, button:active {
+  margin: auto;
+  color: black;
+  width: calc(100% - 4px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 1;
+  transition: 0.125s;
+  overflow: hidden;
+  /*position: relative;*/
+}
+
+button:hover:not(:disabled) {
+  color:  white;
+  opacity: 1;
+  background-color: black;
+}
+
+button:disabled {
+  opacity:  0.25;
+}
+
+button:focus {
+  outline: 0;
+  opacity: 1.0;
+}
+
+button.navButton {
+  width: 50px;
+  height: 50px;
+  margin: 0px 0px;
+}
+
+button.progressButton {
+  width: calc(100% - 4px);
+  min-width: 40px;
+  margin: 2px 2px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#createOrderButton {
+  height: 50px;
+  width: 25%;
+  min-width: 175px;
+}
+
+/* Slider styling */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: calc(100% - 4px);
+  height: 20px;
+  background: white;
+  outline: none;
+  opacity: 1;
+  align-self: center;
+  vertical-align: middle;
+  /*padding: 0 0;*/
+  -webkit-transition: .125s;
+  transition: opacity .2s;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.slider:hover {
+  opacity: .75;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 18px; /* Set a specific slider handle width */
+  height: 18px; /* Slider handle height */
+  background: black; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border: none;
+  border-radius: 20px;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px; /* Set a specific slider handle width */
+  height: 18px; /* Slider handle height */
+  background: black; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border: none;
+  border-radius: 20px;
+}
+
+#diffusionSlider {
+  width: 75%;
+}
+.diffusionLabel{
+  vertical-align: baseline;
+  width: 25%;
+}
+
+/* Label styling */
+
+label {
+  vertical-align: middle;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+/* Styling for table */
+
+table {
+  margin: auto;
+  width: 100%;
+  max-width: 1025px;
+  padding: 0px 0px 0px 0px;
+  border-collapse: collapse;
+}
+
+table.input-table  {
+  width: 100%;
+}
+
+tr, td {
+  margin: auto;
+  padding: 0px 0px 0px 0px;
+  position: relative;
+}
+
+#input-table-controls-back, #input-table-controls-next {
+  width: 50px;
+  height: 50px;
+  padding:  0px 0px 0px 0px;
+  margin: none;
+  text-align: center;
+}
+
+#input-table-controls-main {
+  width: 100%;
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+}
+
+.main-controls {
+  width: 100%;
+  padding:  none;
+  display: none;
+  position: relative;
+  margin: auto;
+}
+
+.canvasContainer {
+  width: 100%;
+  border:  none;
+  padding: 4px 0px 0px 0px;
+  margin: auto;
+}
+
+.p5Canvas {
+  margin: auto;
+}
+
+/*
+Spinner and Loading Overlay
+Thanks to https://loading.io/css/
+*/
+
+.loading-overlay{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: auto;
+  background-color: black;
+  z-index: 10;
+  opacity: 0.5;
+}
+
+.loading-spinner {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+}
+
+.loading-spinner:after {
+  content: " ";
+  display: block;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: loading-spinner 1.2s linear infinite;
+}
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

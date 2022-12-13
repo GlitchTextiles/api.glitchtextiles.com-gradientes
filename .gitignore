@@ -1,0 +1,7 @@
+conf.json
+install.sh
+.DS_Store
+uninstall.sh
+__pycache__/
+.env
+testfiles/

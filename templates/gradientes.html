@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="GlitchTextiles Custom Glitched Gradient Throw Blankets">
+		<meta name="author" content="GlitchTextiles">
+		<title> Gradientes</title>
+		<!-- Scripts -->
+		<script type="text/javascript" src="./static/p5.min.js"></script>
+		<script type="text/javascript" src="./static/common.js"></script>
+		<script type="text/javascript" src="./static/dachoppa.js"></script>
+		<script type="text/javascript" src="./static/diffusion.js"></script>
+		<script type="text/javascript" src="./static/gradientes.js"></script>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="./static/gradientes-style.css"/>
+		<link rel="stylesheet" type="text/css" href="./static/glitchtextiles-main.css"/>
+	</head>
+	<body>
+		<table id="input-table" class="input-table">
+			<tbody>
+				<tr id="input-table-controls" class="input-table-controls">
+
+					<td id="input-table-controls-back"></td>
+
+					<td id="input-table-controls-main">
+
+						<div id="generateDiv" class="main-controls">
+							<table id="generateControls" class="generateControls">
+								<tbody>
+									<tr>
+										<td rowspan="2" id="orientationRadio" class="orientationRadio">
+											<div class="orientationRadio">
+												<input type="radio" name="orientation" id="portraitRadioButton" value="portrait" class="radioButton">
+												<label class="orientationLabel" for="portraitRadioButton">
+													<img src="./static/portrait.png" width="25" alt="potrait">
+												</label>
+											</div>
+											<div class="orientationRadio">
+												<input type="radio" name="orientation" id="landscapeRadioButton" value="landscape" class="radioButton">
+												<label class="orientationLabel" for="portraitRadioButton">
+													<img src="./static/landscape.png" width="25" alt="landscape">
+												</label>
+											</div>
+										</td>
+										<td class="color-picker-container">
+											<span class="color-picker-wrapper" id="colorPickerA-wrapper">
+												<input type="color" class="picker" id="colorPickerA">
+											</span>
+											<span class="color-picker-wrapper" id="colorPickerB-wrapper">
+												<input type="color" class="picker" id="colorPickerB">
+											</span>
+										</td>
+										<td rowspan="2" id="directionRadio" class="directionRadio">
+											<div class="directionRadio">
+												<input type="radio" name="direction" id="verticalRadioButton" value="vertical" class="radioButton">
+												<label class="directionLabel" for="verticalRadioButton">
+													<img class="gradient" id="verticalGradient">
+												</label>
+											</div>
+											<div class="directionRadio">
+												<input type="radio" name="direction" id="horizontalRadioButton" value="horizontal" class="radioButton">
+												<label class="directionLabel" for="horizontalRadioButton">
+													<img class="gradient" id="horizontalGradient">
+												</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td id="pixelSize-container">
+											<div class="dropdown-container" id="pixelSize-dropdown-container">
+												<button onclick="pixelSizeDropdown()" class="dropdown-button" id="pixelSize-dropdown-button">Pixel Size</button>
+												<div class="dropdown-option-container" id="pixelSize-dropdown-options">
+													<button class="dropdown-option" onclick="setPixelSize(1)">1x</button>
+													<button class="dropdown-option" onclick="setPixelSize(2)">2x</button>
+													<button class="dropdown-option" onclick="setPixelSize(4)">4x</button>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div id="chopDiv" class="main-controls">
+							<table id="chopControls" class="chopControls">
+								<colgroup>
+									<col class="labels">
+									<col class="sliders">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td><label for="chopMinSlider">MIN</label></td>
+										<td><input type="range" min="1" max="1000" value="1" class="slider" id="chopMinSlider"></td>
+									</tr>
+									<tr>
+										<td><label for="chopMaxSlider">MAX</label></td>
+										<td><input type="range" min="1" max="1000" value="300" class="slider" id="chopMaxSlider"></td>
+									</tr>
+									<tr>
+										<td><label for="chopSeedSlider">SEED</label></td>
+										<td><input type="range" min="0" max="1000" value="0" class="slider" id="chopSeedSlider"></td>
+									</tr>
+									<tr>
+										<td><label for="chopWarpSlider">WARP</label></td>
+										<td><input type="range" min="0" max="2000" value="500" class="slider" id="chopWarpSlider"></td>
+									</tr>
+									<tr>
+										<td><label for="chopJitterSlider">JITTER</label></td>
+										<td><input type="range" min="0" max="1000" value="0" class="slider" id="chopJitterSlider"></td>
+									</tr>
+									<tr>
+										<td><label for="chopShiftSlider">SHIFT</label></td>
+										<td><input type="range" min="-500" max="500" value="0" class="slider" id="chopShiftSlider"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div id="quantizeDiv" class="main-controls">
+							<table>
+								<tr>
+									<td id='alias-container'>
+										<div>ALIAS:</div>
+										<label class="toggle" id="alias-toggle-label">
+											<input type="checkbox" id="aliasToggle">
+											<span class="toggle-switch"></span>
+										</label>
+									</td>
+
+									<td id='dither-dropdown-container'>
+										<div class="dropdown-container" id="ditherPalette-dropdown-container">
+											<button class="dropdown-button" id="ditherPalette-dropdown-button"  onclick="ditherPaletteDropdown()">Palette</button>
+											<div class="dropdown-option-container" id="ditherPalette-dropdown-options">
+												<button class="dropdown-option" onclick="setActivePalette(0)">color
+												</button>
+												<button class="dropdown-option" onclick="setActivePalette(1)">greyscale</button>
+												<button class="dropdown-option" onclick="setActivePalette(2)">black & white
+												</button>
+											</div>
+										</div>
+
+										<div class="dropdown-container" id="ditherAlgorithm-dropdown-container">
+											<button  class="dropdown-button" id="ditherAlgorithm-dropdown-button" onclick="ditherAlgorithmDropdown()">Algorithm</button>
+											<div class="dropdown-option-container" id="ditherAlgorithm-dropdown-options">
+												<button class="dropdown-option" onclick="setDitherAlgorithm(0)">floyd-steinberg
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(1)">false floyd-steinberg</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(2)">jarvis, judice & ninke
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(3)">stucki
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(4)">atkinson
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(5)">burkes
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(6)">sierra
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(7)">two-row sierra
+												</button>
+												<button class="dropdown-option" onclick="setDitherAlgorithm(8)">sierra lite
+												</button>
+											</div>
+										</div>
+										<label for="diffusionSlider" class="diffusionLabel">amount
+											<input type="range" min="0" max="1000" value="1000" class="slider" id="diffusionSlider">
+										</label>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div id="approveDiv" class="main-controls">
+							<button id="createOrderButton" onclick="createProduct()">Go to product page</button>
+						</div>
+
+					</td>
+					<td id="input-table-controls-next">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="canvasContainer" class="canvasContainer">
+		</div>
+		<div id="loading-overlay" class="loading-overlay">
+			<div id="loading-spinner" class="loading-spinner">
+		</div>
+	</body>
+</html>

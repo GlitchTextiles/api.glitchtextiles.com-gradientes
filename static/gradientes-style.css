@@ -1,0 +1,279 @@
+/* Styling for dropdown menus */
+
+.dropdown-container{
+	width: 100%;
+	position: relative;
+	margin: auto;
+	padding-top: 2px;
+	text-align: center;
+}
+
+.dropdown-button, .dropdown-button:active {
+	width: 100%;
+	margin: auto;
+}
+
+#pixelSize-dropdown-button, #pixelSize-dropdown-button:active {
+	min-width: 100px;
+}
+
+.dropdown-option-container {
+	display: none;
+	position: absolute;
+	padding: 0px 0px 0px 0px;
+	z-index: 1;
+	margin: auto;
+}
+
+.pixelSize-container {
+	width: 80%;
+	min-width: 100px;
+	padding: none;
+	margin: auto;
+}
+
+#pixelSize-dropdown-options {
+	width: 100%;
+	min-width: 100px;
+	margin: auto;
+}
+
+#pixelSize-dropdown-container {
+	width: 80%;
+	min-width: 100px;
+	margin: auto;
+}
+
+.dropdown-option {
+	width: 100%;
+	margin:  auto;
+	color:  black;
+	background-color: white;
+	border: none;
+}
+
+.dropdown-option:hover {
+	color:  white;
+	background-color: black;
+}
+
+
+#ditherPalette-dropdown-container{
+	width: 80%;
+	min-width: 100px;
+	margin: auto;
+}
+
+#ditherPalette-dropdown-options{
+	width: 100%;
+	min-width: 100px;
+	margin: auto;
+}
+
+#ditherPalette-dropdown-button, #ditherPalette-dropdown-button:active {
+	width: 100%;
+}
+
+#ditherAlgorithm-dropdown-container{
+	width: 80%;
+	min-width: 100px;
+	margin: auto;
+}
+
+#ditherAlgorithm-dropdown-options{
+	width: 100%;
+	min-width: 100px;
+	margin: auto;
+}
+
+#ditherAlgorithm-dropdown-button, #ditherAlgorithm-dropdown-button:active {
+	width: 100%;
+}
+
+
+.show{
+	display: block;
+}
+
+/* Slider styling */
+#diffusionSlider {
+	width: 60%;
+}
+
+.diffusionLabel{
+  vertical-align: baseline;
+	height: 25px;
+	width: 25px;
+}
+
+
+/* Styling for table */
+
+
+tr, td {
+	padding: 2px 2px 2px 2px;
+	position: relative;
+	margin: auto;
+	align-content: center;
+}
+#alias-container{
+	width: 12.5%;
+	min-width: 55px;
+	text-align: center;
+}
+#dither-dropdown-container{
+	text-align: center;
+	margin: auto;
+}
+
+.chopControls {
+	width:  100%;
+	text-align: right;
+}
+.color-picker-container{
+	width: 100%;
+	display: block;
+	margin: auto;
+}
+
+col.labels {
+	vertical-align: middle;
+	width: 5%;
+	min-width: 50px;
+	margin: auto;
+}
+
+col.sliders {
+	margin: auto;
+	width: 80%;
+}
+
+.scaleRadio {
+	text-transform: uppercase;
+	vertical-align: middle;
+	margin: auto;
+	min-width:  50px;
+}
+
+.orientationRadio {
+	vertical-align: middle;
+	text-align: center;
+	margin: auto;
+	width:  55px;
+}
+
+.directionRadio {
+	vertical-align: middle;
+	text-align: center;
+	margin: auto;
+	width:  55px;
+}
+
+.orientationLabel {
+	vertical-align: middle;
+}
+
+.directionLabel {
+	width:  25px;
+	height: 25px;
+	vertical-align: middle;
+}
+
+/*Styling for Color Picker*/
+
+input[type="color"] {
+	opacity: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+.color-picker-wrapper {
+	display: inline-grid;
+	width: 40px;
+	height: 40px;
+	border: none;
+	margin: none;
+}
+.picker{
+	width: 100%;
+	height: 100%;
+	margin: none;
+	border: none;
+	padding: none;
+}
+
+.gradient {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	vertical-align: middle;
+	width: 25px;
+	height: 25px;
+	border: none;
+}
+
+#verticalGradient {
+	background-image: linear-gradient(to bottom, #0000ff, #ff0000);
+}
+
+#horizontalGradient {
+	background-image: linear-gradient(to right, #0000ff, #ff0000);
+}
+
+/* Toggle */
+
+/* The switch - the box around the slider */
+.toggle {
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.toggle input {
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+}
+
+/* The slider */
+.toggle-switch {
+	position: absolute;
+	cursor: pointer;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #000;
+	-webkit-transition: .25s;
+	transition: .25s;
+	border-radius: 50px;
+}
+
+.toggle-switch:before {
+	position: absolute;
+	content: "";
+	height: 18px;
+	width: 18px;
+	left: 1px;
+	bottom: 1px;
+	background-color: white;
+	-webkit-transition: .25s;
+	transition: .25s;
+	border-radius: 50%;
+}
+
+input:checked + .toggle-switch {
+	background-color: #000000;
+}
+
+input:focus + .toggle-switch {
+	box-shadow: 0px 0px 1px #000000;
+}
+
+input:checked + .toggle-switch:before {
+	-webkit-transform: translateX(10px);
+	-ms-transform: translateX(10px);
+	transform: translateX(10px);
+}
