@@ -1,4 +1,4 @@
-const endpointURL = 'https://api.glitchtextiles.com/v0/apps/gradientes';
+const endpointURL = 'https://api.glitchtextiles.com/v0/apps/gradientes/';
 
 const landscapeWidth = 1000;
 const landscapeHeight = 768;
