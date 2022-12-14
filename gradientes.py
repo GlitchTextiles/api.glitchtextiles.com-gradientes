@@ -20,7 +20,7 @@ import time
 
 from decouple import config
 
-debug = True
+debug = False
 
 abs_path = os.path.dirname(os.path.abspath(__file__))
 rel_path = "templates/custom_product_template.json"
