@@ -1,4 +1,4 @@
-const endpointURL = 'https://api.glitchtextiles.com/gradientes';
+const endpointURL = 'https://api.glitchtextiles.com/v0/apps/gradientes';
 
 const landscapeWidth = 1000;
 const landscapeHeight = 768;
@@ -569,27 +569,36 @@ function fitCanvasTo(_image){
 //------------------------------------------------------------------
 // send image to server
 
+
 async function createProduct(){
-	document.getElementById('createOrderButton').disabled = true;
-	spinnerShow();
-	if(stretchedImg != null ){
-		var redirectURL = null;
-		stretchedImg.loadPixels();
-		var imageBlob = await new Promise(resolve => stretchedImg.canvas.toBlob(resolve, 'image/png'));
-		var formData = new FormData();
-		formData.append('image',imageBlob,'custom.png')
-		var response = await fetch(endpointURL, {
-			method: 'POST',
-			body: formData
-		});
-		var body = await response.json();
-		var status_code = response.status;
-		if ( status_code == 201 ){
-			redirectURL = body['message'];
-			window.top.location.href = redirectURL;
-		} else {
-			console.log("A server error prevented product page creation.");
+	try{
+		document.getElementById('createOrderButton').disabled = true;
+		spinnerShow();
+		if(stretchedImg != null ){
+			var redirectURL = null;
+			stretchedImg.loadPixels();
+			var imageBlob = await new Promise(resolve => stretchedImg.canvas.toBlob(resolve, 'image/png'));
+			var formData = new FormData();
+			formData.append('image',imageBlob,'custom.png')
+			var response = await fetch(endpointURL, {
+				method: 'POST',
+				body: formData
+			});
+			var body = await response.json();
+			var status_code = response.status;
+			// console.log(status_code);
+			// console.log(body);
+			if ( status_code == 201 ){
+				redirectURL = body['message'];
+				window.top.location.href = redirectURL;
+			} else {
+				console.log("A server error prevented product page creation.");
+			}
 		}
+	} catch (error){
+		console.error(error);
+	} finally {
+		document.getElementById('createOrderButton').disabled = false;
+		spinnerHide();
 	}
-	spinnerHide();
 }
