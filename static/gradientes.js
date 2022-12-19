@@ -589,8 +589,12 @@ async function createProduct(){
 			// console.log(status_code);
 			// console.log(body);
 			if ( status_code == 201 ){
-				redirectURL = body['message'];
-				window.top.location.href = redirectURL;
+				if (body['message']){
+					redirectURL = body['message'];
+					window.top.location.href = redirectURL
+				} else {
+					console.log(`A response is ${status_code} but the body is ${body}.`);
+				}
 			} else {
 				console.log("A server error prevented product page creation.");
 			}
